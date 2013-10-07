@@ -12,18 +12,24 @@ class TestPoker(unittest.TestCase):
     hc = ['4S', '3H', '9D', '8C', 'TS']
     
     def test_poker_example_1(self):
-        '''Test get poker with sf(straight flush) and fk(4 kinds).'''
+        '''Test poker with sf(straight flush) and fk(4 kinds).'''
  
         actual = poker.poker([TestPoker.sf,TestPoker.fk])
         expected = ['JC', 'TC', '9C', '8C', '7C']
         self.assertEqual(actual, expected)
  
     def test_poker_example_2(self):
-        '''Test get divisors with fh(full house) and fk(4 kinds).'''
+        '''Test poker with fh(full house) and fk(4 kinds).'''
  
         actual = poker.poker([TestPoker.fh,TestPoker.fk])
         expected = ['5S', '5H', '5D', '5C', 'KS']
         self.assertEqual(actual, expected)
+
+    def test_poker_example_3(self):
+        '''Test hand ranks with sf(straight flush).'''
  
+        actual = poker.hand_rank(TestPoker.sf)
+        expected = (8, 11)
+        self.assertEqual(actual, expected)
 if __name__ == '__main__':
     unittest.main(exit=False)
