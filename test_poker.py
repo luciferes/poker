@@ -34,10 +34,18 @@ class TestPoker(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_poker_example_4(self):
-        '''Test hand ranks with s1(straight).'''
+        '''Test hand ranks with Ace to five low.'''
  
         actual = poker.hand_rank(TestPoker.al)
         expected = (0, [5,4,3,2,1])
         self.assertEqual(actual, expected)
+        
+    def test_poker_example_5(self):
+        '''Test hand ranks with 10 high card.'''
+ 
+        actual = poker.hand_rank(TestPoker.hc)
+        expected = (0, poker.ranking(TestPoker.hc))
+        self.assertEqual(actual, expected)
+
 if __name__ == '__main__':
     unittest.main(exit=False)
