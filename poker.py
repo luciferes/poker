@@ -31,6 +31,15 @@ def poker(hands):
     return max(hands, key=hand_rank)
 
 def ranking(hand):
+     '''
+    (hand)-> [int,int,int,int,int]
+
+    Return rank of the cards in hand
+    >>> ranking(['JC', 'TC', '9C', '8C', '7C'])
+    [11, 10, 9, 8, 7]
+    >>> ranking(['5S', '5H', '9D', '8C', '8S'])
+    [9, 8, 8, 5, 5]
+     '''
     ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
     ranks.sort(reverse=True)
     return ranks
