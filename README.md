@@ -1,12 +1,12 @@
 # Poker #
 ----
-## Poker.py ##  
+## Poker.py    
 This modlue offers the winner of poker for the python language. it have "poker([hand, hand, ...])" function to solve what is the best of hand in hands. and it have more function to use such as "straight(hand)" , "flush(hand)", "fullhouse(ranks)" , "kind(n, ranks)" , "twopair(ranks)"      
 ------
-### poker(hands) -> the best hand(s) ###    
+### poker(hands) -> the best hand(s)    
 Return the best hand from list of hands
 
-###### **Example** ######
+###### **Example**  
 ~~~~~~
 >>> sf = ['JC', 'TC', '9C', '8C', '7C']
 >>> fk = ['5S', '5H', '5D', '5C', 'KS']
@@ -32,12 +32,18 @@ Return the best hand from list of hands
 ['JC', 'TC', '9C', '8C', '7C']
 >>> poker([op])
 ['5S', '3H', '9D', '8C', '8S']
+>>> al = ['5S', '4H', '3C', '2C', 'AC']
+>>> fal = ['5S', '4S', '2S', '3S', 'AS']
+>>> hand_rank(al)
+(4, 5)
+>>> hand_rank(fal)
+(8, 5)
 ~~~~~~    
 ------
-### ranking(hand) -> list of 5 ints ###    
+### ranking(hand) -> list of 5 ints     
 Return rank of the cards in hand
 
-###### **Example** ######
+###### **Example** 
 ~~~~~~
 >>> ranking(['JC', 'TC', '9C', '8C', '7C'])
 [11, 10, 9, 8, 7]
@@ -45,10 +51,10 @@ Return rank of the cards in hand
 [9, 8, 8, 5, 5]
 ~~~~~~
 ------
-### hand_rank(hand) -> tuple of two int ###     
+### hand_rank(hand) -> tuple of two int      
 Return the hand rank of a hand
 
-###### **Example** ######
+###### **Example** 
 ~~~~~~
 >>> sf = ['JC', 'TC', '9C', '8C', '7C']
 >>> hand_rank(sf)
@@ -79,10 +85,10 @@ Return the hand rank of a hand
 (0, [10, 9, 8, 4, 3])
 ~~~~~~
 ------
-### straight(hand) -> Boolean ###
+### straight(hand) -> Boolean 
 Return True if hand is straight,false otherwise    
 
-###### **Example** ######
+###### **Example** 
 ~~~~~~
 >>> sf = ['JC', 'TC', '9C', '8C', '7C']
 >>> straight(sf)
@@ -92,10 +98,10 @@ True
 False
 ~~~~~~
 ------
-### flush(hand) -> Boolean ###    
+### flush(hand) -> Boolean     
 Return True if hand is flush, False otherwise.    
 
-###### **Example** ######
+###### **Example** 
 ~~~~~~
 >>> sf = ['JC', 'TC', '9C', '8C', '7C']
 >>> flush(sf)
@@ -105,7 +111,7 @@ False
 True
 ~~~~~~
 ------
-### fullhouse(ranks) -> Boolean ###    
+### fullhouse(ranks) -> Boolean     
 Return True if hand is fullhouse,false otherwise     
 
 ~~~~~~
@@ -120,10 +126,10 @@ False
 True
 ~~~~~~
 ------
-### kind(n, ranks) -> a tuple of int, list of rank ###    
+### kind(n, ranks) -> a tuple of int, list of rank    
 Return rank if hand is n kind, false otherwise    
 
-###### **Example** ######    
+###### **Example**    
 ~~~~~~
 >>> sf_ranks = [11, 10, 9, 8, 7]
 >>> kind(4, sf_ranks)
@@ -139,11 +145,11 @@ Return rank if hand is n kind, false otherwise
 8
 ~~~~~~
 ------  
-### twopair(ranks) -> tuple  of two pair rank###    
+### twopair(ranks) -> tuple  of two pair rank    
 
 Return tuple of highpair and lowpair if hand is twopair, false otherwise    
 
-###### **Example** ######    
+###### **Example**     
 ~~~~~~
 >>> sf_ranks = [11, 10, 9, 8, 7] 
 >>> twopair(sf_ranks)
