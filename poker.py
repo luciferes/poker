@@ -81,7 +81,7 @@ def hand_rank(hand):
     if ranks == [14,5,4,3,2]:
         ranks = [5,4,3,2,1]
         return (0, ranks)
-    elif straight(hand) and flush(hand):
+    elif straight(hand, ranks) and flush(hand):
         return (8, max(ranks))
     elif kind(4, ranks):
         return (7, kind(4, ranks))
@@ -89,7 +89,7 @@ def hand_rank(hand):
         return (6, kind(3, ranks))
     elif flush(hand):
         return (5, ranks)
-    elif straight(hand):
+    elif straight(hand, ranks):
         return (4, max(ranks))
     elif kind(3, ranks):
         return (3, kind(3, ranks))
@@ -100,7 +100,7 @@ def hand_rank(hand):
     else:
         return (0, ranks)
 
-def straight(hand):
+def straight(hand, ranks):
     """
    (hand)-> Bool
  
