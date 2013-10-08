@@ -80,8 +80,7 @@ def hand_rank(hand):
     ranks = ranking(hand)
     if ranks == [14,5,4,3,2]:
         ranks = [5,4,3,2,1]
-        return (0, ranks)
-    elif straight(hand, ranks) and flush(hand):
+    if straight(hand, ranks) and flush(hand):
         return (8, max(ranks))
     elif kind(4, ranks):
         return (7, kind(4, ranks))
