@@ -47,7 +47,7 @@ class TestPoker(unittest.TestCase):
         '''Test hand ranks with 10 high card.'''
  
         actual = poker.hand_rank(TestPoker.hc)
-        expected = (0, poker.ranking(TestPoker.hc))
+        expected = (0, [10, 9, 8, 4, 3])
         self.assertEqual(actual, expected)
 
     def test_poker_example_6(self):
@@ -75,28 +75,49 @@ class TestPoker(unittest.TestCase):
         '''Test hand ranks with 3 kinds.'''
  
         actual = poker.hand_rank(TestPoker.tk)
-        expected = (3, 8, poker.ranking(TestPoker.tk))
+        expected = (3, 8, [8, 8, 8, 7, 5])
         self.assertEqual(actual, expected)
 
     def test_poker_example_10(self):
         '''Test hand ranks with two pairs.'''
  
         actual = poker.hand_rank(TestPoker.tp)
-        expected = (2, poker.twopair(poker.ranking(TestPoker.tp)), poker.kind(1, poker.ranking(TestPoker.tp)))
+        expected = (2, (8, 5), 9)
         self.assertEqual(actual, expected)
 
     def test_poker_example_11(self):
         '''Test hand ranks with flush.'''
  
         actual = poker.hand_rank(TestPoker.f1)
-        expected = (5, poker.ranking(TestPoker.f1))
+        expected = (5, [11, 9, 8, 7, 5])
         self.assertEqual(actual, expected)
 
     def test_poker_example_12(self):
-        '''Test hand ranks with 2 kinds(one pair).'''
+        '''Test hand ranks with 2 kinds(one pairs).'''
  
         actual = poker.hand_rank(TestPoker.op)
-        expected = (1, poker.kind(2, poker.ranking(TestPoker.op)), poker.ranking(TestPoker.op))
+        expected = (1, 8, [9, 8, 8, 5, 3])
+        self.assertEqual(actual, expected)
+
+    def test_poker_example_13(self):
+        '''Test ranking func with straight flush.'''
+ 
+        actual = poker.ranking(TestPoker.sf)
+        expected = [11, 10, 9, 8, 7]
+        self.assertEqual(actual, expected)
+
+    def test_poker_example_14(self):
+        '''Test ranking func with two pairs.'''
+ 
+        actual = poker.ranking(TestPoker.tp)
+        expected = [9, 8, 8, 5, 5]
+        self.assertEqual(actual, expected)
+
+    def test_poker_example_15(self):
+        '''Test ranking func with Ace to five low straight.'''
+ 
+        actual = poker.ranking(TestPoker.sal)
+        expected = [5, 4, 3, 2, 1]
         self.assertEqual(actual, expected)
 
 if __name__ == '__main__':
