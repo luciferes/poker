@@ -1,7 +1,11 @@
-# Poker #
+# Poker    
 ======
 ## Poker.py      
+
+
 This modlue offers the winner of poker for the python language. it have "poker([hand, hand, ...])" function to solve what is the best of hand in hands. and it have more function to use such as "straight(hand)" , "flush(hand)", "fullhouse(ranks)" , "kind(n, ranks)" , "twopair(ranks)"      
+
+
 ======
 ### poker(hands) -> the best hand(s)    
 Return a list of the best hand(s) from list of hands
@@ -39,8 +43,12 @@ Return a list of the best hand(s) from list of hands
 >>> hand_rank(fal)
 (8, 5)
 ~~~~~~    
+
+
 ======
 ### ranking(hand) -> list of 5 ints     
+
+
 Return rank of the cards in hand
 
 ###### **Example** 
@@ -52,6 +60,8 @@ Return rank of the cards in hand
 ~~~~~~
 ======    
 ### hand_rank(hand) -> tuple of two int      
+
+
 Return the hand rank of a hand.    
 
 ###### **Example**    
@@ -86,6 +96,8 @@ Return the hand rank of a hand.
 ~~~~~~
 ------
 ### straight(hand) -> Boolean    
+
+
 Return True if hand is straight,false otherwise    
 
 ###### **Example**     
@@ -99,6 +111,8 @@ False
 ~~~~~~
 ======
 ### flush(hand) -> Boolean       
+
+
 Return True if hand is flush, False otherwise.      
 
 ###### **Example**       
@@ -112,6 +126,8 @@ True
 ~~~~~~
 ------
 ### fullhouse(ranks) -> Boolean     
+
+
 Return True if hand is fullhouse,false otherwise     
 
 ~~~~~~
@@ -127,6 +143,8 @@ True
 ~~~~~~    
 ======    
 ### kind(n, ranks) -> a tuple of int, list of rank    
+
+
 Return rank if hand is n kind, false otherwise    
 
 ###### **Example**    
@@ -146,6 +164,8 @@ Return rank if hand is n kind, false otherwise
 ~~~~~~   
 ======    
 ### twopair(ranks) -> tuple  of two pair rank    
+
+
 Return tuple of highpair and lowpair if hand is twopair, false otherwise    
 
 ###### **Example**     
