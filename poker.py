@@ -200,12 +200,7 @@ def twopair(ranks):
    >>> twopair(tp_ranks)
    (8, 5)
    """
-    ranks.sort(reverse=True)
     high_pair = kind(2, ranks)
-    ranks.sort()
-    low_pair = kind(2, ranks)
-    ranks.sort(reverse=True)
-    if high_pair != low_pair:
-        return (high_pair, low_pair)
-    return ()
+    low_pair = kind(2, list(reversed(ranks)))
+    return (high_pair, low_pair) if high_pair > low_pair else (low_pair, high_pair) if high_pair < low_pair else ()
 
