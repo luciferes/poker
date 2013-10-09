@@ -1,10 +1,11 @@
-# Poker    
-======
-## Poker.py      
+# Poker.py      
 
 
-This modlue offers the winner of poker for the python language. it have "poker([hand, hand, ...])" function to solve what is the best of hand in hands. and it have more function to use such as "straight(hand)" , "flush(hand)", "fullhouse(ranks)" , "kind(n, ranks)" , "twopair(ranks)"      
+This module offers the winner of poker for the python language. it have "poker([hand, hand, ...])" function to solve what is the best of hand in hands. and it have more function to use such as "straight(hand)" , "flush(hand)", "fullhouse(ranks)" , "kind(n, ranks)" , "twopair(ranks)"      
 
+Contact below
+Noppadol Trongkij, s6070070@kmitl.ac.th
+Bussakorn Wonghorm, s6070080@kmitl.ac.th
 
 ======
 ### poker(hands) -> the best hand(s)    
@@ -177,3 +178,8 @@ Return tuple of highpair and lowpair if hand is twopair, false otherwise
 >>> twopair(tp_ranks)
 (8, 5)
 ~~~~~~
+
+###Reference
+
+Teacher of PSIT
+Assoc.Prof. Dr.Chotipat Pornavalai
