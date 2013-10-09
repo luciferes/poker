@@ -7,28 +7,33 @@ def poker(hands):
    >>> fk = ['5S', '5H', '5D', '5C', 'KS']
    >>> sf2 = ['JS', 'TS', '9S', '8S', '7S']
    >>> poker([sf, sf2])
-   ['JC', 'TC', '9C', '8C', '7C']
+   [['JC', 'TC', '9C', '8C', '7C'], ['JS', 'TS', '9S', '8S', '7S']]
    >>> poker([sf, fk])
-   ['JC', 'TC', '9C', '8C', '7C']
+   [['JC', 'TC', '9C', '8C', '7C']]
    >>> fh = ['5S', '5H', '5D', '8C', '8S']
    >>> poker([fh, fk])
-   ['5S', '5H', '5D', '5C', 'KS']
+   [['5S', '5H', '5D', '5C', 'KS']]
    >>> s1 = ['JC', 'TC', '9C', '8S', '7C']
    >>> poker([fh, s1])
-   ['5S', '5H', '5D', '8C', '8S']
+   [['5S', '5H', '5D', '8C', '8S']]
    >>> op = ['5S', '3H', '9D', '8C', '8S']
    >>> tp = ['5S', '5H', '9D', '8C', '8S']
    >>> hc = ['4S', '3H', '9D', '8C', 'TS']
    >>> poker([op, tp])
-   ['5S', '5H', '9D', '8C', '8S']
+   [['5S', '5H', '9D', '8C', '8S']]
    >>> poker([op, hc])
-   ['5S', '3H', '9D', '8C', '8S']
+   [['5S', '3H', '9D', '8C', '8S']]
    >>> poker([op, hc, sf])
-   ['JC', 'TC', '9C', '8C', '7C']
+   [['JC', 'TC', '9C', '8C', '7C']]
    >>> poker([op])
-   ['5S', '3H', '9D', '8C', '8S']
+   [['5S', '3H', '9D', '8C', '8S']]
+   >>> s2 = ['7D', '9D', '8H', '6S', '5D']
+   >>> poker([s1, s2])
+   [['JC', 'TC', '9C', '8S', '7C'], ['7D', '9D', '8H', 'TS', 'JD']]
    """
-    return max(hands, key=hand_rank)
+    win = max(hands, key=hand_rank)
+    maxvalue = hand_rank(win)
+    return [hand for hand in hands if hand_rank(hand)==maxvalue]
 
 def ranking(hand):
     '''
@@ -137,7 +142,6 @@ def flush(hand):
    """
    
     suits = [s for r,s in hand]
- 
     return len(set(suits)) == 1
  
 def fullhouse(ranks):
