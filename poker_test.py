@@ -120,5 +120,33 @@ class TestPoker(unittest.TestCase):
         expected = [5, 4, 3, 2, 1]
         self.assertEqual(actual, expected)
 
+    def test_poker_example_16(self):
+        '''Test hand rank func with straight.'''
+ 
+        actual = poker.hand_rank(TestPoker.s1)
+        expected = (4, 11)
+        self.assertEqual(actual, expected)
+
+    def test_poker_example_17(self):
+        '''Test twopair func with 2 pairs.'''
+ 
+        actual = poker.twopair([9, 8, 8, 5, 5])
+        expected = (8, 5)
+        self.assertEqual(actual, expected)
+
+    def test_poker_example_18(self):
+        '''Test twopair func with 2 pairs but didn't sort ranks.'''
+ 
+        actual = poker.twopair([5, 5, 9, 8, 8])
+        expected = (8, 5)
+        self.assertEqual(actual, expected)
+
+    def test_poker_example_19(self):
+        '''Test twopair func with straight flush.'''
+ 
+        actual = poker.twopair(poker.ranking(TestPoker.sf))
+        expected = ()
+        self.assertEqual(actual, expected)
+
 if __name__ == '__main__':
     unittest.main(exit=False)
