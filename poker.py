@@ -1,8 +1,8 @@
 def poker(hands):
     """
-   ([hand, hand, ...])-> hands
+   ([hand, hand, ...])-> hand(s)
  
-   Return the best hand from list of hands
+   Return the best hand(s) from list of hands
    >>> sf = ['JC', 'TC', '9C', '8C', '7C']
    >>> fk = ['5S', '5H', '5D', '5C', 'KS']
    >>> sf2 = ['JS', 'TS', '9S', '8S', '7S']
@@ -35,13 +35,20 @@ def ranking(hand):
     (hand)-> [int,int,int,int,int]
 
     Return rank of the cards in hand
-    >>> ranking(['JC', 'TC', '9C', '8C', '7C'])
+    >>> sf = ['JC', 'TC', '9C', '8C', '7C']
+    >>> ranking(sf)
     [11, 10, 9, 8, 7]
-    >>> ranking(['5S', '5H', '9D', '8C', '8S'])
+    >>> tp = ['5S', '5H', '9D', '8C', '8S']
+    >>> ranking(tp)
     [9, 8, 8, 5, 5]
+    >>> sal = ['5S', '4H', '3C', '2C', 'AC']
+    >>> ranking(sal)
+    [5, 4, 3, 2, 1]
     '''
     ranks = ['--23456789TJQKA'.index(r) for r,s in hand]
     ranks.sort(reverse=True)
+    if ranks == [14,5,4,3,2]:
+        ranks = [5,4,3,2,1]
     return ranks
 
 def hand_rank(hand):
@@ -78,18 +85,17 @@ def hand_rank(hand):
    (0, [10, 9, 8, 4, 3])
    """
     ranks = ranking(hand)
-    if ranks == [14,5,4,3,2]:
-        ranks = [5,4,3,2,1]
-    if straight(hand, ranks) and flush(hand):
-        return (8, max(ranks))
+    if straight(hand, ranks):
+        if flush(hand):
+            return (8, max(ranks))
+        else:
+            return (4, max(ranks))
     elif kind(4, ranks):
         return (7, kind(4, ranks), kind(1, ranks))
     elif fullhouse(ranks):
         return (6, kind(3, ranks), kind(2, ranks))
     elif flush(hand):
         return (5, ranks)
-    elif straight(hand, ranks):
-        return (4, max(ranks))
     elif kind(3, ranks):
         return (3, kind(3, ranks), ranks)
     elif twopair(ranks):
