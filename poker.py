@@ -83,17 +83,17 @@ def hand_rank(hand):
     if straight(hand, ranks) and flush(hand):
         return (8, max(ranks))
     elif kind(4, ranks):
-        return (7, kind(4, ranks))
+        return (7, kind(4, ranks), kind(1, ranks))
     elif fullhouse(ranks):
-        return (6, kind(3, ranks))
+        return (6, kind(3, ranks), kind(2, ranks))
     elif flush(hand):
         return (5, ranks)
     elif straight(hand, ranks):
         return (4, max(ranks))
     elif kind(3, ranks):
-        return (3, kind(3, ranks))
+        return (3, kind(3, ranks), ranks)
     elif twopair(ranks):
-        return (2, twopair(ranks)[0], twopair(ranks)[1], kind(1, ranks))
+        return (2, twopair(ranks), kind(1, ranks))
     elif kind(2, ranks):
         return (1, kind(2, ranks), ranks)
     else:
@@ -202,6 +202,4 @@ def twopair(ranks):
     if high_pair != low_pair:
         return (high_pair, low_pair)
     return ()
- 
-    #return (not kind(3, ranks)) and len(set(ranks)) == 3
 
