@@ -1,7 +1,7 @@
 # Poker.py      
 
 
-This module offers the winner of poker for the python language. it have "poker([hand, hand, ...])" function to solve what is the best of hand in hands. and it have more function to use such as "straight(hand)" , "flush(hand)", "fullhouse(ranks)" , "kind(n, ranks)" , "twopair(ranks)"      
+This module offers the winner of poker for the python language. it have `poker([hand, hand, ...])` function to solve what is the best of hand in hands. and it have more function to use such as `straight(hand)` , `flush(hand)` , `fullhouse(ranks)` , `kind(n, ranks)` , `twopair(ranks)`      
 
 
 *Our Contacts below*:    
