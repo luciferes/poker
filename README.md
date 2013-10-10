@@ -3,46 +3,39 @@
 
 This module offers the winner of poker for the python language. it have "poker([hand, hand, ...])" function to solve what is the best of hand in hands. and it have more function to use such as "straight(hand)" , "flush(hand)", "fullhouse(ranks)" , "kind(n, ranks)" , "twopair(ranks)"      
 
-Contact below
-Noppadol Trongkij, s6070070@kmitl.ac.th
-Bussakorn Wonghorm, s6070080@kmitl.ac.th
+
+Our Contacts below:    
+
+Noppadol Trongkij: s6070070@kmitl.ac.th    
+
+Bussakorn Wonghorm: s6070080@kmitl.ac.th    
 
 ======
 ### poker(hands) -> the best hand(s)    
-Return a list of the best hand(s) from list of hands
+Return a list of the best hand(s) from list of hands    
+
 
 ###### **Example**    
 ~~~~~~
 >>> sf = ['JC', 'TC', '9C', '8C', '7C']
->>> fk = ['5S', '5H', '5D', '5C', 'KS']
 >>> sf2 = ['JS', 'TS', '9S', '8S', '7S']
 >>> poker([sf, sf2])
-['JC', 'TC', '9C', '8C', '7C']
->>> poker([sf, fk])
-['JC', 'TC', '9C', '8C', '7C']
+[['JC', 'TC', '9C', '8C', '7C'], ['JS', 'TS', '9S', '8S', '7S']]
 >>> fh = ['5S', '5H', '5D', '8C', '8S']
+>>> fk = ['5S', '5H', '5D', '5C', 'KS']
 >>> poker([fh, fk])
-['5S', '5H', '5D', '5C', 'KS']
->>> s1 = ['JC', 'TC', '9C', '8S', '7C']
->>> poker([fh, s1])
-['5S', '5H', '5D', '8C', '8S']
+[['5S', '5H', '5D', '5C', 'KS']]
 >>> op = ['5S', '3H', '9D', '8C', '8S']
 >>> tp = ['5S', '5H', '9D', '8C', '8S']
 >>> hc = ['4S', '3H', '9D', '8C', 'TS']
 >>> poker([op, tp])
-['5S', '5H', '9D', '8C', '8S']
+[['5S', '5H', '9D', '8C', '8S']]
 >>> poker([op, hc])
-['5S', '3H', '9D', '8C', '8S']
+[['5S', '3H', '9D', '8C', '8S']]
 >>> poker([op, hc, sf])
-['JC', 'TC', '9C', '8C', '7C']
->>> poker([op])
-['5S', '3H', '9D', '8C', '8S']
->>> al = ['5S', '4H', '3C', '2C', 'AC']
->>> fal = ['5S', '4S', '2S', '3S', 'AS']
->>> hand_rank(al)
-(4, 5)
->>> hand_rank(fal)
-(8, 5)
+[['JC', 'TC', '9C', '8C', '7C']]
+>>> poker([s1, s2])
+[['JC', 'TC', '9C', '8S', '7C'], ['7D', '9D', '8H', 'TS', 'JD']]
 ~~~~~~    
 
 
@@ -50,7 +43,7 @@ Return a list of the best hand(s) from list of hands
 ### ranking(hand) -> list of 5 ints     
 
 
-Return rank of the cards in hand
+Return rank of the cards in hand    
 
 ###### **Example** 
 ~~~~~~
@@ -95,7 +88,7 @@ Return the hand rank of a hand.
 >>> hand_rank(hc)
 (0, [10, 9, 8, 4, 3])
 ~~~~~~
-------
+======
 ### straight(hand) -> Boolean    
 
 
@@ -125,12 +118,13 @@ False
 >>> flush(fk)
 True
 ~~~~~~
-------
+======
 ### fullhouse(ranks) -> Boolean     
 
 
 Return True if hand is fullhouse,false otherwise     
 
+###### **Example**   
 ~~~~~~
 >>> sf_ranks = [11, 10, 9, 8, 7]
 >>> fullhouse(sf_ranks)
@@ -146,7 +140,7 @@ True
 ### kind(n, ranks) -> a tuple of int, list of rank    
 
 
-Return rank if hand is n kind, false otherwise    
+Return rank if hand is n kind, false otherwise.    
 
 ###### **Example**    
 ~~~~~~
@@ -167,7 +161,7 @@ Return rank if hand is n kind, false otherwise
 ### twopair(ranks) -> tuple  of two pair rank    
 
 
-Return tuple of highpair and lowpair if hand is twopair, false otherwise    
+Return tuple of highpair and lowpair if hand is twopair, false otherwise.    
 
 ###### **Example**     
 ~~~~~~
@@ -179,7 +173,22 @@ Return tuple of highpair and lowpair if hand is twopair, false otherwise
 (8, 5)
 ~~~~~~
 
-###Reference
+------
+# poker_test.py    
 
-Teacher of PSIT
-Assoc.Prof. Dr.Chotipat Pornavalai
+this module offers to check testcase of poker.py, if you want to add more test just add a function
+~~~~~~
+    def test_poker_example_xx(self):
+        '''Test what?.'''
+ 
+        actual = *[!]put the module you want to test it[!]*
+        expected = *[!]put output that you expected[!]*
+        self.assertEqual(actual, expected)
+~~~~~~    
+
+------
+## Reference    
+
+[1]  Assoc.Prof. Dr.Chotipat Pornavalai    
+
+[2]  Peter Norvig    
